@@ -1,0 +1,380 @@
+/* *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+    font-size: 14px;
+  }
+  .main-container {
+    display: flex;
+    height: 100vh;
+  }
+  .container{
+    width:95%;
+    margin: auto  ;
+  }
+  .sidebar {
+    width: 200px;
+    background-color: #1a1a40;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    margin-top: 0;
+    color: #F99508;
+  }
+  span{
+    color: #fff;
+  }
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-top: 1rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .content-area {
+    flex: 1;
+    background: #f9f9f9;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+   border-bottom: 1px solid ;
+  }
+  .notification-wrapper {
+    position: relative;
+  }
+  
+  
+  .topbar h2 {
+    margin: 0;
+    color: #F99508;
+  }
+  
+  .notification-icon{
+    font-size: 23px;
+    color: #555;
+  }
+  .notification-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 8px;
+    width: 8px;
+    background-color: #F99508;
+    border-radius: 50%;
+    border: 2px solid #0f0f0f; 
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+   
+  }
+  
+  th {
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  
+  .modal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    position: absolute;
+    top: 0;
+    left: 8px;
+
+  }
+  
+  .close-icon {
+    color: red;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .modal-title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .modal-subtitle {
+    color: #666;
+    padding-top: 20px;
+    text-align: center  ;
+    font-size: 14px;
+    
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  
+  .delete-btn {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  
+  
+  .delete-btn:hover {
+    background: #d9363e;
+  }
+  
+  .controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .search-input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 180px;
+  }
+  .search-container {
+    position: relative;
+    width: 250px; 
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: cursor;
+  }
+  
+ 
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .date-input {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .add-new-btn {
+    background-color: #F99508;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .add-new-btn:hover {
+    background-color: #F99508;
+  }
+  
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+}
+
+.sidebar-form {
+    width: 280px;
+    background: white;
+    padding: 30px;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.input-box {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    
+}
+
+.gender-options {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+
+
+.gender-options label{
+    display: flex;
+    align-items: center;
+}
+.gender-options input{
+    margin-right: 5px;
+}
+input[type="radio"] {
+  accent-color: #F99508; 
+}
+
+
+
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.range-slider {
+    width: 80%;
+    -webkit-appearance: none; 
+    appearance: none;
+    background: black; 
+    height: 3px; 
+    border-radius: 5px;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 20px;
+    border-radius: 10%;
+    background-color: #F99508; 
+    
+}
+
+
+
+.percentage-value {
+   
+    color:#F99508 ; 
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    background: #F99508;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #eee;
+    color: #F99508;
+    border: 1px solid #F99508;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+
+  
+}
+
